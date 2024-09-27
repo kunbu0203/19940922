@@ -113,7 +113,7 @@ $(function () {
       });
     },
     width: window.innerWidth,
-    height: window.innerHeight,
+    height: window.innerHeight * 0.8,
     facingMode: front ? 'user' : 'environment'
   });
   camera.start();
