@@ -4,9 +4,8 @@ $(function () {
   const ctx = $canvas.getContext('2d');
   let streamObj; // 預計用來存放 串流相關的物件(MediaStream)
   let front = true;
-
-  // const img = new Image();
-  // img.src = '/assets/image/touch/logo.png'; // 你想顯示的圖片路徑
+  const img = new Image();
+  img.src = '/assets/image/touch/logo.png'; // 你想顯示的圖片路徑
 
   // 開啟 webcam
   openCam();
@@ -54,46 +53,51 @@ $(function () {
         ctx.scale(-1, 1);
       }
       ctx.drawImage(results.image, 0, 0, $canvas.width, $canvas.height);
-      if (results.multiFaceLandmarks) {
-        for (const landmarks of results.multiFaceLandmarks) {
-          // drawConnectors(ctx, landmarks, FACEMESH_TESSELATION,
-          //     { color: '#C0C0C070', lineWidth: 1 });
-          drawConnectors(ctx, landmarks, FACEMESH_RIGHT_EYE, {
-            color: '#FF3030'
-          });
-          drawConnectors(ctx, landmarks, FACEMESH_LEFT_EYE, {
-            color: '#30FF30'
-          });
-          drawConnectors(ctx, landmarks, FACEMESH_FACE_OVAL, {
-            color: '#E0E0E0'
-          });
-          drawConnectors(ctx, landmarks, FACEMESH_LIPS, {
-            color: '#E0E0E0'
-          });
-        }
-      }
+
+      // if (results.multiFaceLandmarks) {
+      //     for (const landmarks of results.multiFaceLandmarks) {
+      //         // drawConnectors(ctx, landmarks, FACEMESH_TESSELATION,
+      //         //     { color: '#C0C0C070', lineWidth: 1 });
+      //         drawConnectors(ctx, landmarks, FACEMESH_RIGHT_EYE, { color: '#FF3030' });
+      //         drawConnectors(ctx, landmarks, FACEMESH_LEFT_EYE, { color: '#30FF30' });
+      //         drawConnectors(ctx, landmarks, FACEMESH_FACE_OVAL, { color: '#E0E0E0' });
+      //         drawConnectors(ctx, landmarks, FACEMESH_LIPS, { color: '#E0E0E0' });
+      //     }
+      // }
+
       if (results.multiFaceLandmarks && results.multiFaceLandmarks.length > 0) {
         const landmarks = results.multiFaceLandmarks[0];
 
-        // 提取頭部和相機的距離
-        const headTop = landmarks[10]; // 頭頂坐標
-        const faceWidth = Math.abs(landmarks[33].x - landmarks[263].x) * $canvas.width; // 33和263是眼睛的外側標誌點
-        const distance = faceWidth * 0.01; // 計算距離
+        // 計算臉部的外接矩形範圍
+        let minX = Infinity,
+          minY = Infinity,
+          maxX = -Infinity,
+          maxY = -Infinity;
+        for (const point of landmarks) {
+          const x = point.x * $canvas.width;
+          const y = point.y * $canvas.height;
+          minX = Math.min(minX, x);
+          minY = Math.min(minY, y);
+          maxX = Math.max(maxX, x);
+          maxY = Math.max(maxY, y);
+        }
+
+        // 計算臉部面積
+        const faceWidth = maxX - minX;
+        const faceHeight = maxY - minY;
+        const faceArea = faceWidth * faceHeight;
+
+        // 根據面積調整圖片大小，面積越大，頭越近
+        const scale = Math.max(0.2, faceArea / 100000);
 
         // 計算頭頂的座標
-        const x = headTop.x * $canvas.width;
-        const y = headTop.y * $canvas.height;
+        const topOfHead = landmarks[10];
+        const x = topOfHead.x * $canvas.width;
+        const y = topOfHead.y * $canvas.height;
 
-        // 繪製頭頂的圖片，根據距離調整大小
-        // ctx.drawImage(img, x - 50 * distance, y - 100 * distance, 100 * distance, 100 * distance);
-
-        ctx.beginPath(); // 開始一個新路徑
-        ctx.arc(x - 1 * distance, y - 100 * distance, 100 * distance, 0, Math.PI * 2); // 以圓心、半徑及角度繪製圓
-        ctx.fillStyle = 'blue'; // 設置填充顏色
-        ctx.fill(); // 填充圓形
-        ctx.stroke(); // 畫出圓的邊框
+        // 根據比例繪製圖片
+        ctx.drawImage(img, x - img.width * scale / 2, y - img.height * scale - 20, img.width * scale, img.height * scale);
       }
-
       ctx.restore();
     });
   }
@@ -107,7 +111,7 @@ $(function () {
       ideal: 656 * 3
     },
     height: {
-      ideal: 656 * 3
+      ideal: 900 * 3
     },
     facingMode: front ? 'user' : 'environment'
   });
