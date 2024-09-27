@@ -15,7 +15,7 @@ $(function () {
       video: {
         facingMode: front ? 'user' : 'environment',
         width: {
-          ideal: window.innerWidth * 3
+          ideal: 390 * 3
         }
       }
     }).then(function (stream) {
@@ -113,7 +113,7 @@ $(function () {
         image: $video
       });
     },
-    width: 300,
+    width: 390,
     height: 600,
     facingMode: front ? 'user' : 'environment'
   });
