@@ -15,9 +15,8 @@ $(function () {
       video: {
         facingMode: front ? 'user' : 'environment',
         width: {
-          ideal: 390 * 3
+          ideal: window.innerWidth * 3
         }
-        // height: { ideal: 656 * 3 }
       }
     }).then(function (stream) {
       streamObj = stream; // 將串流物件放在 streamObj 全域變數，方便後面關閉 webcam 時會用到
@@ -112,13 +111,10 @@ $(function () {
       await faceMesh.send({
         image: $video
       });
-    }
-    // width: { ideal: 656 * 3 },
-    // height: 1280,
-    // width: 390,
-    // height: 600,
-    // facingMode: front ? 'user' : 'environment'
+    },
+    width: window.innerWidth,
+    height: window.innerHeight,
+    facingMode: front ? 'user' : 'environment'
   });
-
   camera.start();
 });
