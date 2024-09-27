@@ -96,7 +96,7 @@ $(function () {
         const y = topOfHead.y * $canvas.height;
 
         // 根據比例繪製圖片
-        ctx.drawImage(img, x - img.width * scale / 2, y - img.height * scale - 20, img.width * scale, img.height * scale);
+        ctx.drawImage(img, x - $canvas.width * 0.7 * scale / 2, y - $canvas.width * 0.7 * scale - 20, $canvas.width * 0.7 * scale, $canvas.width * 0.7 * scale);
       }
       ctx.restore();
     });
