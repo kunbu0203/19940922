@@ -31,10 +31,6 @@ $(function () {
     alert(`${$video.videoWidth}, ${$video.videoHeight}`);
     $canvas.width = $video.videoWidth;
     $canvas.height = $video.videoHeight;
-
-    // const canvasWidth = $video.videoWidth;
-    // $canvas.width = canvasWidth;
-    // $canvas.height = canvasWidth * 1.5;
   }, false);
   $('[data-camera-direction]').on('click', function () {
     streamObj.getTracks().forEach(track => track.stop());
@@ -119,8 +115,8 @@ $(function () {
         image: $video
       });
     },
-    // width: 390,
-    // height: 600,
+    width: $video.videoWidth,
+    height: $video.videoHeight,
     facingMode: front ? 'user' : 'environment'
   });
   camera.start();
