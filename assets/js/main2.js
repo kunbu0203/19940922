@@ -106,6 +106,7 @@ $(function () {
       ctx.restore();
     });
   }
+  alert(window.innerHeight);
   const camera = new Camera($video, {
     onFrame: async () => {
       await faceMesh.send({
@@ -113,7 +114,7 @@ $(function () {
       });
     },
     width: window.innerWidth,
-    height: window.innerHeight * 0.8,
+    height: 600,
     facingMode: front ? 'user' : 'environment'
   });
   camera.start();
