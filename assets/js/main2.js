@@ -110,7 +110,9 @@ $(function () {
     width: {
       ideal: 656 * 3
     },
-    // height: { ideal: 900 * 3 },
+    height: {
+      ideal: 900 * 3
+    },
     facingMode: front ? 'user' : 'environment'
   });
   camera.start();
