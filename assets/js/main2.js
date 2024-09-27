@@ -96,7 +96,7 @@ $(function () {
         const y = topOfHead.y * $canvas.height;
 
         // 根據比例繪製圖片
-        ctx.drawImage(img, x - $canvas.width * 0.7 * scale / 2, y - $canvas.width * 0.7 * scale - 20, $canvas.width * 0.7 * scale, $canvas.width * 0.7 * scale);
+        ctx.drawImage(img, x - $video.videoWidth * 0.7 * scale / 2, y - $video.videoWidth * 0.7 * scale - 20, $video.videoWidth * 0.7 * scale, $video.videoWidth * 0.7 * scale);
       }
       ctx.restore();
     });
@@ -110,9 +110,7 @@ $(function () {
     width: {
       ideal: 656 * 3
     },
-    height: {
-      ideal: 900 * 3
-    },
+    // height: { ideal: 900 * 3 },
     facingMode: front ? 'user' : 'environment'
   });
   camera.start();
