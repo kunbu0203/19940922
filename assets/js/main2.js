@@ -5,6 +5,9 @@ $(function () {
   let streamObj; // 預計用來存放 串流相關的物件(MediaStream)
   let front = true;
 
+  // const img = new Image();
+  // img.src = '/assets/image/touch/logo.png'; // 你想顯示的圖片路徑
+
   // 開啟 webcam
   openCam();
   function openCam() {
@@ -82,14 +85,18 @@ $(function () {
         const y = headTop.y * $canvas.height;
 
         // 繪製頭頂的圖片，根據距離調整大小
-        ctx.drawImage(img, x - 50 * distance, y - 100 * distance, 100 * distance, 100 * distance);
+        // ctx.drawImage(img, x - 50 * distance, y - 100 * distance, 100 * distance, 100 * distance);
+
+        ctx.beginPath(); // 開始一個新路徑
+        ctx.arc(x - 1 * distance, y - 100 * distance, 100 * distance, 0, Math.PI * 2); // 以圓心、半徑及角度繪製圓
+        ctx.fillStyle = 'blue'; // 設置填充顏色
+        ctx.fill(); // 填充圓形
+        ctx.stroke(); // 畫出圓的邊框
       }
+
       ctx.restore();
     });
   }
-  const img = new Image();
-  img.src = '/assets/image/touch/logo.png'; // 你想顯示的圖片路徑
-
   const camera = new Camera($video, {
     onFrame: async () => {
       await faceMesh.send({
