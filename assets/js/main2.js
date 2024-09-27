@@ -15,7 +15,7 @@ $(function () {
       video: {
         facingMode: front ? 'user' : 'environment',
         width: {
-          ideal: 656 * 3
+          ideal: 390 * 3
         }
         // height: { ideal: 656 * 3 }
       }
