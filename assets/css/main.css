@@ -219,7 +219,7 @@ p {
 .camera {
   position: relative;
   height: 605px;
-  background-color: #655050;
+  background-color: #d6a2a2;
   overflow: hidden;
 }
 
@@ -229,7 +229,6 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 390px;
-  height: 600px;
   opacity: 0;
 }
 
@@ -239,7 +238,6 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 390px;
-  height: 600px;
 }
 
 .camera button {
