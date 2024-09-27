@@ -12,7 +12,12 @@ $(function () {
   function openCam() {
     // 開啟視訊鏡頭，瀏覽器會跳詢問視窗
     navigator.mediaDevices.getUserMedia({
-      video: true
+      video: {
+        facingMode: front ? 'user' : 'environment',
+        width: {
+          ideal: 656 * 3
+        }
+      }
     }).then(function (stream) {
       streamObj = stream; // 將串流物件放在 streamObj 全域變數，方便後面關閉 webcam 時會用到
       $video.srcObject = stream; // video 標籤顯示 webcam 畫面
@@ -96,7 +101,7 @@ $(function () {
         const y = topOfHead.y * $canvas.height;
 
         // 根據比例繪製圖片
-        ctx.drawImage(img, x - $video.videoWidth * 0.7 * scale / 2, y - $video.videoWidth * 0.7 * scale - 20, $video.videoWidth * 0.7 * scale, $video.videoWidth * 0.7 * scale);
+        ctx.drawImage(img, x - window.innerWidth * 0.3 * scale / 2, y - window.innerWidth * 0.3 * scale - 20, window.innerWidth * 0.3 * scale, window.innerWidth * 0.3 * scale);
       }
       ctx.restore();
     });
@@ -110,9 +115,7 @@ $(function () {
     width: {
       ideal: 656 * 3
     },
-    height: {
-      ideal: 900 * 3
-    },
+    // height: 1280,
     facingMode: front ? 'user' : 'environment'
   });
   camera.start();
