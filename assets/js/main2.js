@@ -106,14 +106,14 @@ $(function () {
       ctx.restore();
     });
   }
-  alert(window.innerHeight);
+  alert(`${window.innerWidth}, ${window.innerHeight}`);
   const camera = new Camera($video, {
     onFrame: async () => {
       await faceMesh.send({
         image: $video
       });
     },
-    width: window.innerWidth,
+    width: 300,
     height: 600,
     facingMode: front ? 'user' : 'environment'
   });
