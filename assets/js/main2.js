@@ -73,19 +73,16 @@ $(function () {
         const landmarks = results.multiFaceLandmarks[0];
 
         // 提取頭部和相機的距離
-        const nose = landmarks[0]; // 鼻子坐標
         const headTop = landmarks[10]; // 頭頂坐標
-        const distance = Math.abs(nose.z - headTop.z); // 計算距離
-
-        // 根據距離計算縮放比例，這裡假設距離越遠，縮放比例越小
-        // const scale = Math.max(0.5, 2 - distance) * 0.1; // 設置縮放邊界
+        const faceWidth = Math.abs(landmarks[33].x - landmarks[263].x) * $canvas.width; // 33和263是眼睛的外側標誌點
+        const distance = faceWidth * 0.01; // 計算距離
 
         // 計算頭頂的座標
         const x = headTop.x * $canvas.width;
         const y = headTop.y * $canvas.height;
 
         // 繪製頭頂的圖片，根據距離調整大小
-        ctx.drawImage(img, x - img.width * 0.3 / 2, y - img.height * 0.3, img.width * 0.3, img.height * 0.3);
+        ctx.drawImage(img, x - 50 * distance, y - 100 * distance, 100 * distance, 100 * distance);
       }
       ctx.restore();
     });
