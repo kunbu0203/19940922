@@ -112,10 +112,8 @@ $(function () {
         image: $video
       });
     },
-    // width: { ideal: 656 * 3 },
-    // height: 1280,
-    width: $canvas.width,
-    height: $canvas.height,
+    width: window.innerWidth,
+    height: window.innerHeight,
     facingMode: front ? 'user' : 'environment'
   });
   camera.start();
