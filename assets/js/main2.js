@@ -26,7 +26,7 @@ $(function () {
       alert('取得相機訪問權限失敗: ', error.message, error.name);
     });
   }
-  $video.addEventListener('loadeddata', function () {
+  $video.addEventListener('play', function () {
     // 將 video 標籤的影片寬高，顯示於 canvas 標籤上
     alert(`${$video.videoWidth}, ${$video.videoHeight}`);
     $canvas.width = $video.videoWidth;
