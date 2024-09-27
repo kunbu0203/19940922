@@ -115,8 +115,8 @@ $(function () {
     },
     // width: { ideal: 656 * 3 },
     // height: 1280,
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 390,
+    height: 600,
     facingMode: front ? 'user' : 'environment'
   });
   camera.start();

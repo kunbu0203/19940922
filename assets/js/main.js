@@ -58,7 +58,7 @@ $(function () {
 
   faceMesh.setOptions({
     maxNumFaces: 1,
-    // refineLandmarks: true,
+    refineLandmarks: true,
     minDetectionConfidence: 0.5,
     minTrackingConfidence: 0.5
   });
