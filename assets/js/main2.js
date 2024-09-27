@@ -112,12 +112,13 @@ $(function () {
       await faceMesh.send({
         image: $video
       });
-    },
+    }
     // width: { ideal: 656 * 3 },
     // height: 1280,
-    width: 390,
-    height: 600,
-    facingMode: front ? 'user' : 'environment'
+    // width: 390,
+    // height: 600,
+    // facingMode: front ? 'user' : 'environment'
   });
+
   camera.start();
 });
