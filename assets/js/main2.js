@@ -16,9 +16,6 @@ $(function () {
         facingMode: front ? 'user' : 'environment',
         width: {
           ideal: 390 * 3
-        },
-        height: {
-          ideal: 600 * 3
         }
       }
     }).then(function (stream) {
@@ -31,8 +28,13 @@ $(function () {
   }
   $video.addEventListener('loadeddata', function () {
     // 將 video 標籤的影片寬高，顯示於 canvas 標籤上
+    alert(`${$video.videoWidth}, ${$video.videoHeight}`);
     $canvas.width = $video.videoWidth;
     $canvas.height = $video.videoHeight;
+
+    // const canvasWidth = $video.videoWidth;
+    // $canvas.width = canvasWidth;
+    // $canvas.height = canvasWidth * 1.5;
   }, false);
   $('[data-camera-direction]').on('click', function () {
     streamObj.getTracks().forEach(track => track.stop());
@@ -109,14 +111,15 @@ $(function () {
       ctx.restore();
     });
   }
-  alert(`${window.innerWidth}, ${window.innerHeight}`);
+
+  // alert(`${window.innerWidth}, ${window.innerHeight}`);
   const camera = new Camera($video, {
     onFrame: async () => {
       await faceMesh.send({
         image: $video
       });
     },
-    width: 390,
+    // width: 390,
     // height: 600,
     facingMode: front ? 'user' : 'environment'
   });
