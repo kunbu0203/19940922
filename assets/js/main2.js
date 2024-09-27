@@ -16,6 +16,9 @@ $(function () {
         facingMode: front ? 'user' : 'environment',
         width: {
           ideal: 390 * 3
+        },
+        height: {
+          ideal: 600 * 3
         }
       }
     }).then(function (stream) {
