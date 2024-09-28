@@ -15,7 +15,10 @@ $(function () {
       video: {
         facingMode: front ? 'user' : 'environment',
         width: {
-          ideal: 390 * 3
+          ideal: 2400
+        },
+        height: {
+          ideal: 3200
         }
       }
     }).then(function (stream) {
@@ -26,17 +29,18 @@ $(function () {
       alert('取得相機訪問權限失敗: ', error.message, error.name);
     });
   }
-  $video.addEventListener('play', function () {
+  $video.addEventListener('loadeddata', function () {
     // 將 video 標籤的影片寬高，顯示於 canvas 標籤上
-    alert(`${$video.videoWidth}, ${$video.videoHeight}`);
     $canvas.width = $video.videoWidth;
     $canvas.height = $video.videoHeight;
   }, false);
-  $('[data-camera-direction]').on('click', function () {
-    streamObj.getTracks().forEach(track => track.stop());
-    front = !front;
-    openCam();
-  });
+
+  // $('[data-camera-direction]').on('click', function () {
+  //     streamObj.getTracks().forEach(track => track.stop());
+  //     front = !front;
+  //     openCam();
+  // });
+
   const faceMesh = new FaceMesh({
     locateFile: file => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}` // 本地路徑
   });
@@ -107,8 +111,6 @@ $(function () {
       ctx.restore();
     });
   }
-
-  // alert(`${window.innerWidth}, ${window.innerHeight}`);
   const camera = new Camera($video, {
     onFrame: async () => {
       await faceMesh.send({
