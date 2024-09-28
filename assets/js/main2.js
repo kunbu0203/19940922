@@ -1,4 +1,8 @@
 $(async function () {
+  $(window).on('resize.vh', function () {
+    var vh = window.innerHeight * 0.01;
+    $('html').css('--vh', vh + 'px');
+  }).trigger('resize.vh');
   const $video = document.querySelector('[data-camera-video]');
   const $canvas = document.querySelector('[data-camera-canvas]');
   const ctx = $canvas.getContext('2d');
@@ -102,8 +106,8 @@ $(async function () {
         const faceArea = faceWidth * faceHeight;
 
         // 根據面積調整圖片大小，面積越大，頭越近
-        const scale = Math.min(0.3, faceArea / (window.innerWidth * window.innerHeight));
-        $('.text').text(scale);
+        const scale = faceArea / (window.innerWidth * window.innerHeight);
+        // $('.text').text(scale);
 
         // 計算頭頂的座標
         const topOfHead = landmarks[10];
