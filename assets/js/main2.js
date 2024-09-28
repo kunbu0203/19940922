@@ -102,16 +102,16 @@ $(async function () {
         const faceArea = faceWidth * faceHeight;
 
         // 根據面積調整圖片大小，面積越大，頭越近
-        const scale = Math.max(50, faceArea / 1000);
+        const scale = Math.min(0.3, faceArea / (window.innerWidth * window.innerHeight));
         $('.text').text(scale);
 
         // 計算頭頂的座標
         const topOfHead = landmarks[10];
         const x = topOfHead.x * $canvas.width;
         const y = topOfHead.y * $canvas.height;
-
+        const imgW = faceWidth + scale * 10;
         // 根據比例繪製圖片
-        ctx.drawImage(img, x - scale / 2, y - scale - 20, scale, scale);
+        ctx.drawImage(img, x - imgW / 2, y - imgW, imgW, imgW);
       }
       ctx.restore();
     });
