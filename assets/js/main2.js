@@ -1,4 +1,4 @@
-$(function () {
+$(async function () {
   const $video = document.querySelector('[data-camera-video]');
   const $canvas = document.querySelector('[data-camera-canvas]');
   const ctx = $canvas.getContext('2d');
@@ -29,11 +29,15 @@ $(function () {
       alert('取得相機訪問權限失敗: ', error.message, error.name);
     });
   }
-  $video.addEventListener('loadeddata', function () {
-    // 將 video 標籤的影片寬高，顯示於 canvas 標籤上
-    $canvas.width = $video.videoWidth;
-    $canvas.height = $video.videoHeight;
-  }, false);
+  const aaa = new Promise((resolve, reject) => {
+    $video.addEventListener('loadeddata', function () {
+      // 將 video 標籤的影片寬高，顯示於 canvas 標籤上
+      $canvas.width = $video.videoWidth;
+      $canvas.height = $video.videoHeight;
+      resolve();
+    }, false);
+  });
+  await aaa;
 
   // $('[data-camera-direction]').on('click', function () {
   //     streamObj.getTracks().forEach(track => track.stop());
