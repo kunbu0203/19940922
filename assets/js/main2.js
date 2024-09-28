@@ -102,7 +102,7 @@ $(async function () {
         const faceArea = faceWidth * faceHeight;
 
         // 根據面積調整圖片大小，面積越大，頭越近
-        const scale = Math.max(100, faceArea / 500);
+        const scale = Math.max(50, faceArea / 1000);
 
         // 計算頭頂的座標
         const topOfHead = landmarks[10];
