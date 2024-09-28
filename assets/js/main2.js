@@ -102,7 +102,7 @@ $(async function () {
         const faceArea = faceWidth * faceHeight;
 
         // 根據面積調整圖片大小，面積越大，頭越近
-        const scale = Math.max(0.2, faceArea / 100000);
+        const scale = Math.max(100, faceArea / 500);
 
         // 計算頭頂的座標
         const topOfHead = landmarks[10];
@@ -110,7 +110,7 @@ $(async function () {
         const y = topOfHead.y * $canvas.height;
 
         // 根據比例繪製圖片
-        ctx.drawImage(img, x - window.innerWidth * 0.3 * scale / 2, y - window.innerWidth * 0.3 * scale - 20, window.innerWidth * 0.3 * scale, window.innerWidth * 0.3 * scale);
+        ctx.drawImage(img, x - scale / 2, y - scale - 20, scale, scale);
       }
       ctx.restore();
     });
