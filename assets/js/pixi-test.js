@@ -12,7 +12,7 @@
   container.x = 0;
   container.y = 0;
   app.stage.addChild(container);
-  const itemTexture = await PIXI.Assets.load(`./../assets/image/map1/game/original/coffee.png`);
+  const itemTexture = await PIXI.Assets.load(`https://kunbu0203.github.io/19940922/assets/image/map1/game/original/coffee.png`);
   const item = new PIXI.Sprite(itemTexture);
   item.width = 180;
   item.height = 91;
