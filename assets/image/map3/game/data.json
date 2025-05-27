@@ -5,19 +5,22 @@
                 "x": 385,
                 "y": 1268,
                 "width": 110,
-                "height": 101
+                "height": 101,
+                "hitArea": []
             },
             {
                 "x": 36,
                 "y": 1004,
                 "width": 98,
-                "height": 55
+                "height": 55,
+                "hitArea": []
             },
             {
                 "x": 859,
                 "y": 1382,
                 "width": 95,
-                "height": 64
+                "height": 64,
+                "hitArea": []
             },
             {
                 "x": 771,
@@ -29,7 +32,8 @@
                     "y": 1111,
                     "width": 106,
                     "height": 118
-                }
+                },
+                "hitArea": []
             }
         ],
         "brownRice": [
@@ -73,7 +77,8 @@
                     "y": 434,
                     "width": 89,
                     "height": 104
-                }
+                },
+                "hitArea": []
             },
             {
                 "x": 946,
@@ -85,19 +90,22 @@
                     "y": 282,
                     "width": 125,
                     "height": 148
-                }
+                },
+                "hitArea": []
             },
             {
                 "x": 125,
                 "y": 131,
                 "width": 153,
-                "height": 131
+                "height": 131,
+                "hitArea": []
             },
             {
                 "x": 594,
                 "y": 561,
                 "width": 69,
-                "height": 59
+                "height": 59,
+                "hitArea": []
             }
         ],
         "corn": [
@@ -189,6 +197,7 @@
         "x": 78,
         "y": 1381,
         "width": 113,
-        "height": 52
+        "height": 52,
+        "hitArea": []
     }
 }

@@ -144,21 +144,19 @@
     item.anchor.set(0.5);
     item.eventMode = 'static';
     item.cursor = 'pointer';
-    if (hitArea !== undefined) {
-      if (hitArea.length > 0) {
-        const offsetX = width * -0.5;
-        const offsetY = height * -0.5;
-        const points = hitArea.map((val, i) => i % 2 === 0 ? val + offsetX : val + offsetY);
-        item.hitArea = new PIXI.Polygon(points);
+    if (hitArea.length > 0) {
+      const offsetX = width * -0.5;
+      const offsetY = height * -0.5;
+      const points = hitArea.map((val, i) => i % 2 === 0 ? val + offsetX : val + offsetY);
+      item.hitArea = new PIXI.Polygon(points);
 
-        // const hitShape = new PIXI.Graphics();
-        // hitShape.beginFill(0xff0000, 0.3); // 紅色、30% 透明度
-        // hitShape.drawPolygon(hitArea);
-        // hitShape.endFill();
-        // hitShape.x = offsetX;
-        // hitShape.y = offsetY;
-        // container.addChild(hitShape);
-      }
+      // const hitShape = new PIXI.Graphics();
+      // hitShape.beginFill(0xff0000, 0.3); // 紅色、30% 透明度
+      // hitShape.drawPolygon(hitArea);
+      // hitShape.endFill();
+      // hitShape.x = offsetX;
+      // hitShape.y = offsetY;
+      // container.addChild(hitShape);
     }
 
     item.on('pointerdown', () => {
@@ -265,7 +263,8 @@
           x,
           y,
           width,
-          height
+          height,
+          hitArea
         } = item;
         const imgName = `${key}-${randomIndex[i] + 1}`;
         createItem({
@@ -273,7 +272,8 @@
           y,
           width,
           height,
-          imgName
+          imgName,
+          hitArea
         });
 
         // 若有葉子覆蓋
@@ -300,14 +300,16 @@
       x,
       y,
       width,
-      height
+      height,
+      hitArea
     } = data.coffee;
     createItem({
       x,
       y,
       width,
       height,
-      imgName: 'coffee'
+      imgName: 'coffee',
+      hitArea
     });
     // 若咖啡豆有葉子覆蓋
     if (data.coffee.leaf) {

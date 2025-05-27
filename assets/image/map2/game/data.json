@@ -128,7 +128,8 @@
                 "x": 817,
                 "y": 519,
                 "width": 98,
-                "height": 86
+                "height": 86,
+                "hitArea": []
             },
             {
                 "x": 378,
@@ -140,7 +141,8 @@
                     "y": 308,
                     "width": 113,
                     "height": 108
-                }
+                },
+                "hitArea": []
             },
             {
                 "x": 52,
@@ -152,13 +154,15 @@
                     "y": 724,
                     "width": 203,
                     "height": 211
-                }
+                },
+                "hitArea": []
             },
             {
                 "x": 537,
                 "y": 701,
                 "width": 59,
-                "height": 52
+                "height": 52,
+                "hitArea": []
             }
         ],
         "persimmonLeaf": [
@@ -166,25 +170,29 @@
                 "x": 192,
                 "y": 177,
                 "width": 128,
-                "height": 90
+                "height": 90,
+                "hitArea": []
             },
             {
                 "x": 550,
                 "y": 789,
                 "width": 98,
-                "height": 77
+                "height": 77,
+                "hitArea": []
             },
             {
                 "x": 1034,
                 "y": 359,
                 "width": 88,
-                "height": 122
+                "height": 122,
+                "hitArea": []
             },
             {
                 "x": 696,
                 "y": 416,
                 "width": 63,
-                "height": 76
+                "height": 76,
+                "hitArea": []
             }
         ],
         "malt": [
@@ -198,7 +206,8 @@
                     "y": 1422,
                     "width": 162,
                     "height": 108
-                }
+                },
+                "hitArea": []
             },
             {
                 "x": 121,
@@ -210,19 +219,22 @@
                     "y": 1347,
                     "width": 127,
                     "height": 85
-                }
+                },
+                "hitArea": []
             },
             {
                 "x": 406,
                 "y": 1365,
                 "width": 85,
-                "height": 64
+                "height": 64,
+                "hitArea": []
             },
             {
                 "x": 268,
                 "y": 1524,
                 "width": 85,
-                "height": 70
+                "height": 70,
+                "hitArea": []
             }
         ]
     },
@@ -236,6 +248,7 @@
             "y": 1490,
             "width": 134,
             "height": 89
-        }
+        },
+        "hitArea": []
     }
 }
