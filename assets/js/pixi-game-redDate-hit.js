@@ -49,7 +49,8 @@
       y,
       width,
       height,
-      imgName
+      imgName,
+      hitArea
     } = _ref;
     const name = imgName.split('-')[0];
     const container = new PIXI.Container();
@@ -61,6 +62,21 @@
     item.anchor.set(0.5);
     item.eventMode = 'static';
     item.cursor = 'pointer';
+    if (hitArea !== undefined && hitArea.length > 0) {
+      const offsetX = width * -0.5;
+      const offsetY = height * -0.5;
+      const points = hitArea.map((val, i) => i % 2 === 0 ? val + offsetX : val + offsetY);
+      item.hitArea = new PIXI.Polygon(points);
+
+      // const hitShape = new PIXI.Graphics();
+      // hitShape.beginFill(0xff0000, 0.3); // 紅色、30% 透明度
+      // hitShape.drawPolygon(hitArea);
+      // hitShape.endFill();
+      // hitShape.x = offsetX;
+      // hitShape.y = offsetY;
+      // container.addChild(hitShape);
+    }
+
     item.on('pointerdown', () => {
       if (!isStart) return;
       item.eventMode = 'none';

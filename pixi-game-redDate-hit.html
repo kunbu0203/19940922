@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pixi game</title>
+    <link rel="stylesheet" href="./assets/css/normalize.min.css">
+    <link rel="stylesheet" href="./assets/css/main.min.css">
+    <link rel="stylesheet" href="./assets/css/game.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="game">
+            <div class="game-content">
+                <div class="game-stage" id="canvas-container"></div>
+                <div class="game-time"><span data-second>30</span></div>
+            </div>
+            <div class="game-task">
+                <div data-item="redBean">
+                    <img src="./assets/image/map1/1.png" alt="">
+                    <div>
+                        紅豆
+                        <p><span data-num>0</span>/<span data-target></span></p>
+                    </div>
+                </div>
+                <div data-item="mulberryLeaf">
+                    <img src="./assets/image/map1/2.png" alt="">
+                    <div>
+                        桑葉
+                        <p><span data-num>0</span>/<span data-target></span></p>
+                    </div>
+                </div>
+                <div data-item="jobsTears">
+                    <img src="./assets/image/map1/3.png" alt="">
+                    <div>
+                        薏仁
+                        <p><span data-num>0</span>/<span data-target></span></p>
+                    </div>
+                </div>
+                <div data-item="redDate">
+                    <img src="./assets/image/map1/4.png" alt="">
+                    <div>
+                        紅棗
+                        <p><span data-num>0</span>/<span data-target></span></p>
+                    </div>
+                </div>
+                <div data-item="blackBean">
+                    <img src="./assets/image/map1/5.png" alt="">
+                    <div>
+                        黑豆
+                        <p><span data-num>0</span>/<span data-target></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/lib/jquery-3.7.1.min.js"></script>
+    <script src="./assets/lib/gsap.min.js"></script>
+    <script src="./assets/lib/pixi.min.js"></script>
+    
+<script>
+var score = {
+  // 紅豆
+  redBean: 0,
+  // 桑葉
+  mulberryLeaf: 0,
+  // 薏仁
+  jobsTears: 0,
+  // 紅棗
+  redDate: 0,
+  // 黑豆
+  blackBean: 0
+};
+var mapNum = 1;
+</script>
+
+    <script src="./assets/js/pixi-game-redDate-hit.min.js"></script>
+</body>
+
+</html>
