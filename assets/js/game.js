@@ -254,27 +254,46 @@
 
   // 物件定位資料
   fetch(`./../assets/image/map${mapNum}/game/data.json`).then(res => res.json()).then(data => {
-    // Object.entries(data.items).forEach(([key, value]) => {
-    //     // 取得隨機序列資料
-    //     const randomIndex = [1, 2, 3, 4]
-    //         .sort(() => Math.random() - 0.5)
-    //         .slice(0, targetNum)
-    //         .map(i => i - 1);
+    Object.entries(data.items).forEach(_ref3 => {
+      let [key, value] = _ref3;
+      // 取得隨機序列資料
+      const randomIndex = [1, 2, 3, 4].sort(() => Math.random() - 0.5).slice(0, targetNum).map(i => i - 1);
+      randomIndex.map(i => value[i]).forEach((item, i) => {
+        const {
+          x,
+          y,
+          width,
+          height,
+          hitArea
+        } = item;
+        const imgName = `${key}-${randomIndex[i] + 1}`;
+        createItem({
+          x,
+          y,
+          width,
+          height,
+          imgName,
+          hitArea
+        });
 
-    //     randomIndex
-    //         .map(i => value[i])
-    //         .forEach((item, i) => {
-    //             const { x, y, width, height, hitArea } = item;
-    //             const imgName = `${key}-${randomIndex[i] + 1}`;
-    //             createItem({ x, y, width, height, imgName, hitArea });
-
-    //             // 若有葉子覆蓋
-    //             if (item.leaf) {
-    //                 const { x, y, width, height } = item.leaf;
-    //                 createLeaf({ x, y, width, height, imgName });
-    //             }
-    //         });
-    // });
+        // 若有葉子覆蓋
+        if (item.leaf) {
+          const {
+            x,
+            y,
+            width,
+            height
+          } = item.leaf;
+          createLeaf({
+            x,
+            y,
+            width,
+            height,
+            imgName
+          });
+        }
+      });
+    });
 
     // 新增陷阱咖啡豆
     const {
