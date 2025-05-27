@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+}
+
+.stage {
+  width: 390px;
+  height: 541.3333333333px;
+  background: url("../image/map1/game/bg.jpg") no-repeat top center/100%;
+}
+
+.stage.-rwd {
+  width: 100vw;
+  height: 138.8034188034vw;
+}
+
+
+/*# sourceMappingURL=pixi-test.css.map */
