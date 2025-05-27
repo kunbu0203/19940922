@@ -1,0 +1,83 @@
+.main {
+  min-height: 565.2173913043px;
+}
+
+@media only screen and (max-width: 1023px) {
+  .main {
+    min-height: 111.1111111111vw;
+  }
+}
+
+.card-wrap {
+  height: 100%;
+  max-height: 633.9130434783px;
+}
+
+@media only screen and (max-width: 1023px) {
+  .card-wrap {
+    max-height: 124.6153846154vw;
+  }
+}
+
+.complete {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 100px 0 47.8260869565px;
+  text-align: center;
+}
+
+.complete-tit {
+  flex: 0 0 auto;
+  padding-left: 0.1125em;
+  font-size: 34.7826086957px;
+  font-weight: 300;
+  letter-spacing: 0.1125em;
+}
+
+.complete-txt {
+  flex: 1 0 auto;
+  margin-top: 34.7826086957px;
+  font-size: 17.3913043478px;
+  line-height: 1.38;
+  letter-spacing: 0.1em;
+}
+
+.complete-pic {
+  margin-top: 26.0869565217px;
+}
+
+.complete-pic img {
+  width: 330.4347826087px;
+}
+
+.complete-action {
+  flex: 0 0 auto;
+}
+
+@media only screen and (max-width: 1023px) {
+  .complete {
+    padding: 19.6581196581vw 0 9.4017094017vw;
+  }
+
+  .complete-tit {
+    font-size: 6.8376068376vw;
+  }
+
+  .complete-txt {
+    margin-top: 6.8376068376vw;
+    font-size: 3.4188034188vw;
+  }
+
+  .complete-pic {
+    margin-top: 5.1282051282vw;
+  }
+
+  .complete-pic img {
+    width: 64.9572649573vw;
+  }
+}
+
+
+/*# sourceMappingURL=complete.css.map */

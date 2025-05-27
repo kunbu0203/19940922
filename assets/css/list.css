@@ -1,0 +1,311 @@
+.main {
+  min-height: 826.0869565217px;
+}
+
+.main-wrap {
+  flex-direction: row;
+  align-items: center;
+  padding: 113.0434782609px 23.9130434783px 13.0434782609px 28.2608695652px;
+}
+
+@media only screen and (max-width: 1023px) {
+  .main {
+    min-height: 165.811965812vw;
+  }
+
+  .main-wrap {
+    padding: 22.2222222222vw 4.7008547009vw 2.5641025641vw 5.5555555556vw;
+  }
+}
+
+@keyframes tree {
+  0% {
+    transform: skewX(-3deg) scaleY(1);
+  }
+
+  50% {
+    transform: skewX(0) scaleY(0.9);
+  }
+
+  100% {
+    transform: skewX(3deg) scaleY(1);
+  }
+}
+
+.list-bg {
+  position: relative;
+}
+
+.list-bg::after {
+  content: "";
+  position: absolute;
+  bottom: 34.7826086957px;
+  left: 6.9565217391px;
+  width: 433.0434782609px;
+  height: 564.347826087px;
+  background: url(../image/list/road.png) no-repeat center/contain;
+  mix-blend-mode: overlay;
+}
+
+.list-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 26.0869565217px 43.4782608696px 0;
+}
+
+.list-head {
+  margin-bottom: 13.0434782609px;
+  font-size: 21.7391304348px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #494949;
+}
+
+.list-head .-lgT {
+  font-size: 1.16em;
+}
+
+.list-head .-xlT {
+  font-size: 1.24em;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 21.7391304348px;
+  padding-right: 4.347826087px;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 1s, transform 1s;
+}
+
+.list-item:nth-child(odd) {
+  justify-content: flex-start;
+  margin: -33.0434782609px 0;
+}
+
+.list-item.-f01 {
+  transition-delay: 0.1s;
+}
+
+.list-item.-f02 {
+  transition-delay: 0.4s;
+}
+
+.list-item.-f03 {
+  transition-delay: 0.7s;
+}
+
+.-loaded .list-item {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.list-pic {
+  position: relative;
+  width: 195.2173913043px;
+  text-decoration: none;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.list-pic > img.-on {
+  display: none;
+}
+
+.-on .list-pic {
+  pointer-events: visible;
+}
+
+.-on .list-pic > img.-on {
+  display: inline-block;
+}
+
+.-on .list-pic > img.-off {
+  display: none;
+}
+
+.-on .list-pic > div {
+  display: none;
+}
+
+.list-pic > div {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  transform: translateY(-50%);
+  padding-left: 0.24em;
+  letter-spacing: 0.24em;
+  text-align: center;
+  color: #FFF;
+}
+
+.list-date {
+  margin-top: -0.25em;
+  font-size: 43.4782608696px;
+}
+
+.list-date span {
+  font-size: 24.7826086957px;
+}
+
+.list-txt {
+  font-size: 21.7391304348px;
+}
+
+.list-name {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8.6956521739px;
+}
+
+.list-name::before {
+  content: "";
+  position: absolute;
+}
+
+.-f01 .list-name {
+  margin-bottom: 26.0869565217px;
+}
+
+.-f01 .list-name::before {
+  top: -23.4782608696px;
+  left: 20px;
+  width: 40.8695652174px;
+  height: 37.3913043478px;
+  background: url(../image/list/sun.png) no-repeat center/contain;
+}
+
+.-f02 .list-name::before {
+  bottom: 6.9565217391px;
+  right: -43.4782608696px;
+  width: 103.4782608696px;
+  height: 31.7391304348px;
+  background: url(../image/list/cloud.png) no-repeat center/contain;
+}
+
+.-f03 .list-name {
+  margin-top: 26.0869565217px;
+}
+
+.-f03 .list-name::before {
+  top: -18.2608695652px;
+  left: 23.4782608696px;
+  width: 42.6086956522px;
+  height: 35.652173913px;
+  background: url(../image/list/star.png) no-repeat center/contain;
+}
+
+.list-name img {
+  position: relative;
+  flex: 0 0 auto;
+  width: 30.4347826087px;
+  transform-origin: bottom center;
+  animation: tree 1s ease-in-out infinite alternate;
+}
+
+.list-name p {
+  position: relative;
+  flex: 0 0 auto;
+  font-size: 25.2173913043px;
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0.1379310345em;
+  color: #035909;
+}
+
+@media only screen and (max-width: 1023px) {
+  .list-bg::after {
+    bottom: 6.8376068376vw;
+    left: 1.3675213675vw;
+    width: 85.1282051282vw;
+    height: 110.9401709402vw;
+  }
+
+  .list-content {
+    padding: 5.1282051282vw 8.547008547vw 0;
+  }
+
+  .list-head {
+    margin-bottom: 2.5641025641vw;
+    font-size: 4.2735042735vw;
+  }
+
+  .list-item {
+    gap: 4.2735042735vw;
+    padding-right: 0.8547008547vw;
+  }
+
+  .list-item:nth-child(odd) {
+    margin: -6.4957264957vw 0;
+  }
+
+  .list-pic {
+    width: 38.3760683761vw;
+  }
+
+  .list-date {
+    font-size: 8.547008547vw;
+  }
+
+  .list-date span {
+    font-size: 4.8717948718vw;
+  }
+
+  .list-txt {
+    font-size: 4.2735042735vw;
+  }
+
+  .list-name {
+    gap: 1.7094017094vw;
+  }
+
+  .-f01 .list-name {
+    margin-bottom: 5.1282051282vw;
+  }
+
+  .-f01 .list-name::before {
+    top: -4.6153846154vw;
+    left: 3.9316239316vw;
+    width: 8.0341880342vw;
+    height: 7.3504273504vw;
+  }
+
+  .-f02 .list-name::before {
+    bottom: 1.3675213675vw;
+    right: -8.547008547vw;
+    width: 20.3418803419vw;
+    height: 6.2393162393vw;
+  }
+
+  .-f03 .list-name {
+    margin-top: 5.1282051282vw;
+  }
+
+  .-f03 .list-name::before {
+    top: -3.5897435897vw;
+    left: 4.6153846154vw;
+    width: 8.3760683761vw;
+    height: 7.0085470085vw;
+  }
+
+  .list-name img {
+    width: 5.9829059829vw;
+  }
+
+  .list-name p {
+    font-size: 4.9572649573vw;
+  }
+}
+
+
+/*# sourceMappingURL=list.css.map */
